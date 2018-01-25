@@ -140,6 +140,13 @@ static struct strategy *get_strategy(const char *name)
 		}
 		exclude_cmds(&main_cmds, &not_strategies);
 	}
+	if (!strcmp(name, "?")) {
+		for (i = 0; i < main_cmds.cnt; i++)
+			puts(main_cmds.names[i]->name);
+		for (i = 0; i < other_cmds.cnt; i++)
+			puts(other_cmds.names[i]->name);
+		exit(0);
+	}
 	if (!is_in_cmdlist(&main_cmds, name) && !is_in_cmdlist(&other_cmds, name)) {
 		fprintf(stderr, _("Could not find merge strategy '%s'.\n"), name);
 		fprintf(stderr, _("Available strategies are:"));

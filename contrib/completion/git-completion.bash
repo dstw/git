@@ -594,14 +594,7 @@ __git_is_configured_remote ()
 
 __git_list_merge_strategies ()
 {
-	git merge -s help 2>&1 |
-	sed -n -e '/[Aa]vailable strategies are: /,/^$/{
-		s/\.$//
-		s/.*://
-		s/^[ 	]*//
-		s/[ 	]*$//
-		p
-	}'
+	git merge --strategy '?'
 }
 
 __git_merge_strategies=

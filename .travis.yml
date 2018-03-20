@@ -71,6 +71,3 @@ matrix:
 before_install: ci/install-dependencies.sh
 script: ci/run-build-and-tests.sh
 after_failure: ci/print-test-failures.sh
-
-notifications:
-  email: false
